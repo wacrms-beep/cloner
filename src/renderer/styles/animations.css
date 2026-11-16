@@ -1,0 +1,80 @@
+/**
+ * Animations fluides (animations.css) :
+ * Transitions de vues, cascade de cartes, ripple, skeleton, prefers-reduced-motion respecté.
+ */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes shimmerSkeleton {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes rippleWave {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+.view-enter {
+  animation: fadeSlideUp 280ms var(--spring-easing) forwards;
+}
+
+.cascade-item {
+  opacity: 0;
+  animation: fadeSlideUp 320ms var(--spring-easing) forwards;
+}
+
+.cascade-item:nth-child(1) { animation-delay: 20ms; }
+.cascade-item:nth-child(2) { animation-delay: 60ms; }
+.cascade-item:nth-child(3) { animation-delay: 100ms; }
+.cascade-item:nth-child(4) { animation-delay: 140ms; }
+.cascade-item:nth-child(5) { animation-delay: 180ms; }
+.cascade-item:nth-child(6) { animation-delay: 220ms; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-muted) 25%, var(--surface-solid) 50%, var(--surface-muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmerSkeleton 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+.ripple-span {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleWave 500ms ease-out;
+  background: rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

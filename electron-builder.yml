@@ -1,0 +1,45 @@
+appId: com.universalclone.desktop
+productName: Universal Clone
+copyright: Copyright © 2026 Universal Clone
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - src/**/*
+  - package.json
+extraResources:
+  - from: engine
+    to: engine
+    filter:
+      - "**/*"
+      - "!**/__pycache__/**"
+      - "!**/.pytest_cache/**"
+      - "!**/*.pyc"
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: "${productName}-Setup-${version}.${ext}"
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+linux:
+  target:
+    - target: deb
+      arch:
+        - x64
+  category: Development
+  maintainer: "Universal Clone <contact@universal-clone.local>"
+  synopsis: "Cloneur Web local, Sniffer API et Data Studio SQLite"
+deb:
+  depends:
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libxtst6
+    - xdg-utils
+    - libatspi2.0-0
+    - libuuid1

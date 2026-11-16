@@ -1,0 +1,28 @@
+{
+  "name": "universal-clone",
+  "version": "1.0.0",
+  "description": "Universal Clone - Module 1 : Cloneur Web, Sniffer API, Générateur Backend PHP/SQL et Data Studio",
+  "main": "src/main/main.js",
+  "author": "Universal Clone Engineering",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "postinstall": "electron-rebuild -f -w better-sqlite3",
+    "setup": "node scripts/setup.js",
+    "check": "node scripts/dev-check.js",
+    "start": "electron .",
+    "dev": "NODE_ENV=development electron . --dev",
+    "test": "node --test tests/*.test.js",
+    "test:engine": ".venv/bin/pytest engine/tests -v",
+    "build:win": "electron-builder --win nsis",
+    "build:linux": "electron-builder --linux deb"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.2.1",
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0"
+  }
+}

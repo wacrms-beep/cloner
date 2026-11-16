@@ -1,0 +1,358 @@
+/**
+ * Composants réutilisables (components.css) :
+ * Boutons, Chips, Switch, ProgressRing, StepTimeline, ConsolePanel, DataGrid, Sheet, Toast
+ */
+
+/* Boutons avec effet ripple */
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 13.5px;
+  transition: transform var(--fast-transition), background var(--fast-transition), box-shadow var(--fast-transition);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.25);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-primary-hover);
+}
+
+.btn-secondary {
+  background: var(--surface-solid);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-muted);
+}
+
+.btn-danger {
+  background: var(--status-danger-bg);
+  color: var(--status-danger);
+  border: 1px solid var(--status-danger);
+}
+
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn-circle-lg {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(0, 102, 204, 0.35);
+  flex-shrink: 0;
+}
+
+.btn-circle-lg:hover:not(:disabled) {
+  background: var(--accent-primary-hover);
+  transform: scale(1.04);
+}
+
+/* Chips / Badges */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 600;
+  background: var(--surface-solid);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.chip-success {
+  background: var(--status-success-bg);
+  color: var(--status-success);
+}
+
+.chip-warn {
+  background: var(--status-warn-bg);
+  color: var(--status-warn);
+}
+
+.chip-danger {
+  background: var(--status-danger-bg);
+  color: var(--status-danger);
+}
+
+.chip-accent {
+  background: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+/* Interrupteur iOS Switch */
+.ios-switch {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+  transition: background var(--fast-transition);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ios-switch.checked {
+  background: var(--accent-primary);
+}
+
+.ios-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  transition: transform var(--fast-transition);
+}
+
+.ios-switch.checked .ios-switch-thumb {
+  transform: translateX(20px);
+}
+
+/* ProgressRing */
+.progress-ring-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring-svg {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  stroke: var(--border-subtle);
+}
+
+.progress-ring-bar {
+  stroke: var(--accent-primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 350ms var(--spring-easing);
+}
+
+.progress-ring-center {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.progress-ring-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.progress-ring-sub {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* StepTimeline (6 étapes) */
+.step-timeline {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 6px;
+  border-radius: var(--radius-md);
+  background: var(--surface-glass-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all var(--fast-transition);
+}
+
+.step-node.active {
+  background: var(--accent-soft);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.step-node.done {
+  background: var(--status-success-bg);
+  border-color: var(--status-success);
+  color: var(--status-success);
+}
+
+/* ConsolePanel */
+.console-panel {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-solid);
+}
+
+.console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--surface-muted);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.console-body {
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.log-line {
+  display: flex;
+  gap: 8px;
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+.log-line.warn {
+  background: var(--status-warn-bg);
+  color: var(--status-warn);
+}
+
+.log-line.error {
+  background: var(--status-danger-bg);
+  color: var(--status-danger);
+}
+
+/* DataGrid (Data Studio) */
+.data-grid-wrapper {
+  width: 100%;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-solid);
+}
+
+.data-grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.data-grid-table th,
+.data-grid-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  text-align: left;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.data-grid-table th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  font-weight: 700;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.data-grid-table tr:hover td {
+  background: var(--accent-soft);
+}
+
+.cell-null {
+  font-style: italic;
+  color: var(--text-tertiary);
+}
+
+/* Sheet Modal (tiroir iOS) */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 15, 23, 0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.sheet-modal {
+  width: min(620px, 92vw);
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: var(--radius-xl);
+}
+
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+/* Notifications Toast */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 200;
+}
+
+.toast-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: var(--surface-solid);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-elevated);
+  font-weight: 600;
+}

@@ -1,0 +1,16 @@
+node_modules/
+.venv/
+engine/.venv/
+dist/
+out/
+output/
+*.log
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+.pytest_cache/
+__pycache__/
+*.pyc
+.DS_Store
+thumbs.db

@@ -1,0 +1,180 @@
+/**
+ * Mise en page spécifique aux 6 écrans (views.css)
+ */
+
+/* HomeView */
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 32px;
+  gap: 22px;
+}
+
+.url-launcher-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(780px, 96%);
+  padding: 10px 12px 10px 20px;
+  border-radius: var(--radius-pill);
+}
+
+.url-input-main {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.url-input-main:focus {
+  outline: none;
+}
+
+.recent-grid,
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.clone-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  transition: transform var(--fast-transition), box-shadow var(--fast-transition);
+}
+
+.clone-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.clone-thumb {
+  width: 100%;
+  height: 136px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+}
+
+/* JobView */
+.job-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.job-center-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 26px;
+}
+
+.job-stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.job-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* DataStudioView */
+.studio-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 14px;
+  height: calc(100vh - 44px);
+}
+
+.studio-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.studio-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.table-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.table-nav-item:hover {
+  background: var(--surface-muted);
+}
+
+.table-nav-item.active {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+/* SettingsView & LegalView */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.form-row:last-child {
+  border-bottom: none;
+}
+
+.legal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.legal-card {
+  max-width: 580px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}

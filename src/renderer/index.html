@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self';"
+  />
+  <title>Universal Clone</title>
+  <link rel="stylesheet" href="./styles/tokens.css" />
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/glass.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+  <link rel="stylesheet" href="./styles/views.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <!-- Barre latérale étroite style iOS/macOS -->
+    <aside id="sidebar" class="sidebar glass-panel" aria-label="Navigation principale">
+      <div class="sidebar-brand" title="Universal Clone">
+        <div class="brand-logo" id="brand-logo"></div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <button class="nav-btn active" data-route="home" title="Accueil" aria-label="Accueil">
+          <span class="nav-icon" data-icon="home"></span>
+          <span class="nav-label">Accueil</span>
+        </button>
+        <button class="nav-btn" data-route="history" title="Historique" aria-label="Historique">
+          <span class="nav-icon" data-icon="history"></span>
+          <span class="nav-label">Historique</span>
+        </button>
+        <button class="nav-btn" data-route="studio" title="Data Studio" aria-label="Data Studio">
+          <span class="nav-icon" data-icon="database"></span>
+          <span class="nav-label">Studio</span>
+        </button>
+        <button class="nav-btn" data-route="settings" title="Réglages" aria-label="Réglages">
+          <span class="nav-icon" data-icon="settings"></span>
+          <span class="nav-label">Réglages</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="engine-pill" class="engine-status-pill" title="État du moteur Python">
+          <span class="status-dot" id="engine-dot"></span>
+          <span class="status-text" id="engine-text">Moteur</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Zone principale de rendu des vues -->
+    <main id="view-root" class="view-container" role="main"></main>
+  </div>
+
+  <!-- Conteneur des feuilles modales (Sheets) et notifications (Toasts) -->
+  <div id="sheet-root"></div>
+  <div id="toast-root" class="toast-container" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
